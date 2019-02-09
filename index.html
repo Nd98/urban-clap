@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='Peoplesolution is a web and mobile platform that connects homeowners with service providers in real time, based on proximity and availability.' name='description'>
+<meta content='UXOjaaWLtL3YOnLLlS68FQembZZdY6pkjgmNKUdQ8cg' name='google-site-verification'>
+<meta content='pk_live_F1iKTSP71zDS9f9uWoqAogMl' name='stripe-publishable-key'>
+<meta content='878010958960998' property='fb:app_id'>
+<meta content='https://amanecer.tech/' property='og:url'>
+<meta content='Peoplesolution - Easy Home Maintenance' property='og:title'>
+<meta content='Peoplesolution is a web and mobile platform that connects homeowners with service providers in real time, based on proximity and availability.' property='og:description'>
+<meta content='' property='og:image'>
+<meta content='website' property='og:type'>
+<title>Peoplesolution - Easy Home Maintenance</title>
+<script>
+//<![CDATA[
+window.gon={};gon.init=null;gon.user_coordinates={"ip":"49.34.78.85","type":"ipv4","continent_code":"AS","continent_name":"Asia","country_code":"IN","country_name":"India","region_code":"GJ","region_name":"Gujarat","city":"Jalalpur","zip":"396450","latitude":20.9667,"longitude":72.9,"location":{"geoname_id":1269439,"capital":"New Delhi","languages":[{"code":"hi","name":"Hindi","native":"हिन्दी"},{"code":"en","name":"English","native":"English"}],"country_flag":"http://assets.ipstack.com/flags/in.svg","country_flag_emoji":"🇮🇳","country_flag_emoji_unicode":"U+1F1EE U+1F1F3","calling_code":"91","is_eu":false},"time_zone":{"id":"Asia/Kolkata","current_time":"2019-02-04T00:19:39+05:30","gmt_offset":19800,"code":"IST","is_daylight_saving":false},"currency":{"code":"INR","name":"Indian Rupee","plural":"Indian rupees","symbol":"Rs","symbol_native":"টকা"},"connection":{"asn":55836,"isp":"Reliance Jio Infocomm Limited"}};
+//]]>
+</script>
+<link rel="stylesheet" media="all" href="assets/landing.css" />
+<script src="assets/preload.js"></script>
+<script src="assets/landing_preload.js"></script>
+<script src="assets/user_react_components.js"></script>
+<!--<script src="https://js.stripe.com/v2/"></script>-->
+<script src="assets/polyfill.min.js"></script>
+<script src="assets/alertify.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAq8dBZ4VU-WvjqpbmIAgVUfuEzS7Vlj5g"></script>
+<!-- / LEAFLET -->
+<link rel="stylesheet" media="screen" href="assets/leaflet.draw.css" />
+<script src="assets/leaflet.draw.js"></script>
+
+<script src="assets/flatpickr.min.js"></script>
+<link rel="stylesheet" media="screen" href="assets/flatpickr.min.css" />
+
+<!-- Bing Code for Retargeting -->
+<script>
+  (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5321316"};
+  o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,
+  n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;
+  s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},
+  i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,
+  "script","bat.js","uetq");
+</script>
+<noscript>
+<img height="0" width="0" style="display:none; visibility: hidden;" src="//bat.bing.com/action/0?ti=5321316&amp;Ver=2" />
+</noscript>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+  
+  fbq('init', '942498239130341');
+  fbq('track', 'PageView');
+</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-abade7d6bd9c9887dadecc1d1ec3554dbeb4fef0bf73c7fa3ed683266d4f1383.ico" />
+<link rel="apple-touch-icon" type="image/png" href="/assets/favicon-52996f54c4a37389a27a4cfd0d2ec97ccdb38247bf19b888b965750c9477c7d1.png" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/assets/favicon-52996f54c4a37389a27a4cfd0d2ec97ccdb38247bf19b888b965750c9477c7d1.png" />
+
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="vM53GSYDR6+7Kzm0K5VfHsGu/eyXjWde6CP3z9GDd7Jn4qyMLUOrbkxu1jtMm3EL8+NR6fg4nC7iWZUgBcyuUA==" />
+</head>
+<body>
+<nav class='nav'>
+<div class='nav-container container'>
+<div class='branding'>
+<a class="toggle" data-target="#collapsed-menu" href="#"><i class='fa fa-reorder'></i>
+</a><a class="nav-logo" href="/"><h1 class='sr-only'>Peoplesolution</h1>
+<img src="assets/Logo/logo.png" />
+</a></div>
+<div class='collapsible-menu' id='collapsed-menu'>
+<div class='left'>
+<a class="link" href="/jobs/service_picker">Book a Job</a>
+<a class="link" href="/about_us">About Us</a>
+<a class="link" target="_blank" href="">Blog</a>
+<a class="link" target="_blank" href="">Help Centre</a>
+
+</div>
+<div class='right'>
+<div class='dropdown' id='region-picker-container'>
+<div data-react-class="RegionPicker" data-react-props="{&quot;regions&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;Toronto&quot;,&quot;created_at&quot;:&quot;2016-08-17T00:40:42.447-04:00&quot;,&quot;updated_at&quot;:&quot;2018-03-10T01:56:42.800-05:00&quot;,&quot;tax_rate&quot;:&quot;0.13&quot;,&quot;currency&quot;:&quot;CAD&quot;,&quot;time_zone&quot;:&quot;Eastern Time (US \u0026 Canada)&quot;,&quot;country&quot;:&quot;CA&quot;,&quot;labour_tax_rate&quot;:&quot;0.13&quot;,&quot;parts_tax_rate&quot;:&quot;0.13&quot;,&quot;service_fee_tax_rate&quot;:&quot;0.13&quot;,&quot;province&quot;:&quot;ON&quot;},{&quot;id&quot;:3,&quot;name&quot;:&quot;Ottawa&quot;,&quot;created_at&quot;:&quot;2016-10-20T01:13:34.383-04:00&quot;,&quot;updated_at&quot;:&quot;2018-03-10T01:56:42.882-05:00&quot;,&quot;tax_rate&quot;:&quot;0.13&quot;,&quot;currency&quot;:&quot;CAD&quot;,&quot;time_zone&quot;:&quot;Eastern Time (US \u0026 Canada)&quot;,&quot;country&quot;:&quot;CA&quot;,&quot;labour_tax_rate&quot;:&quot;0.13&quot;,&quot;parts_tax_rate&quot;:&quot;0.13&quot;,&quot;service_fee_tax_rate&quot;:&quot;0.13&quot;,&quot;province&quot;:&quot;ON&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;Chicago (2019)&quot;,&quot;created_at&quot;:&quot;2016-08-17T03:11:10.588-04:00&quot;,&quot;updated_at&quot;:&quot;2018-10-03T21:25:41.135-04:00&quot;,&quot;tax_rate&quot;:&quot;0.0&quot;,&quot;currency&quot;:&quot;USD&quot;,&quot;time_zone&quot;:&quot;Central Time (US \u0026 Canada)&quot;,&quot;country&quot;:&quot;US&quot;,&quot;labour_tax_rate&quot;:&quot;0.0&quot;,&quot;parts_tax_rate&quot;:&quot;0.0&quot;,&quot;service_fee_tax_rate&quot;:&quot;0.0&quot;,&quot;province&quot;:&quot;IL&quot;},{&quot;id&quot;:4,&quot;name&quot;:&quot;Boston&quot;,&quot;created_at&quot;:&quot;2017-12-04T00:41:16.964-05:00&quot;,&quot;updated_at&quot;:&quot;2018-12-04T13:51:10.436-05:00&quot;,&quot;tax_rate&quot;:&quot;0.0&quot;,&quot;currency&quot;:&quot;USD&quot;,&quot;time_zone&quot;:&quot;Eastern Time (US \u0026 Canada)&quot;,&quot;country&quot;:&quot;US&quot;,&quot;labour_tax_rate&quot;:&quot;0.0&quot;,&quot;parts_tax_rate&quot;:&quot;0.0625&quot;,&quot;service_fee_tax_rate&quot;:&quot;0.0&quot;,&quot;province&quot;:&quot;MA&quot;}],&quot;currentRegion&quot;:{&quot;id&quot;:1,&quot;name&quot;:&quot;Toronto&quot;,&quot;created_at&quot;:&quot;2016-08-17T00:40:42.447-04:00&quot;,&quot;updated_at&quot;:&quot;2018-03-10T01:56:42.800-05:00&quot;,&quot;tax_rate&quot;:&quot;0.13&quot;,&quot;currency&quot;:&quot;CAD&quot;,&quot;time_zone&quot;:&quot;Eastern Time (US \u0026 Canada)&quot;,&quot;country&quot;:&quot;CA&quot;,&quot;labour_tax_rate&quot;:&quot;0.13&quot;,&quot;parts_tax_rate&quot;:&quot;0.13&quot;,&quot;service_fee_tax_rate&quot;:&quot;0.13&quot;,&quot;province&quot;:&quot;ON&quot;}}"></div>
+</div>
+<a class="nav-btn btn btn-tertiary" href="/professionals/sign_in">Pro Login</a>
+<a class="nav-btn btn btn-secondary" href="/users/sign_in">Login</a>
+
+</div>
+</div>
+</div>
+</nav>
+
+
+<div id='landing-container'>
+
+<section id='main-banner'>
+<div class='container'>
+<div class='banner-left'>
+<div class='content'>
+<h1 class='slogan'>
+HOME MAINTENANCE.
+<br>
+WITHOUT THE HASSLE.
+</h1>
+<div class='hidden-xs'>
+<div data-react-class="ServiceSearch" data-react-props="{}" id="service-search-container"></div>
+</div>
+<div class='visible-xs' id='service-picker'>
+<form novalidate="novalidate" class="simple_form job" action="/jobs/new" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" /><div class='input-group service-picker-group'>
+<select include_blank="Select a service" class="select required form-control unstyled" name="job[service]" id="job_service"><option value="">Select a service</option>
+<option value="42">Decks &amp; Fences</option>
+<option value="4">Handyman Services</option>
+<option value="5">Heating &amp; Cooling</option>
+<option value="38">Roofing</option>
+<option value="12">Window &amp; Eaves Cleaning</option>
+<option value="34">Appliance Install</option>
+<option value="26">Appliance Repair</option>
+<option value="13">BBQ Cleaning &amp; Repair</option>
+<option value="10">Carpet &amp; Upholstery Cleaning</option>
+<option value="17">Duct Cleaning</option>
+<option value="45">Eavestrough Repair</option>
+<option value="3">Electrical</option>
+<option value="41">Flooring</option>
+<option value="16">Furniture Assembly</option>
+<option value="11">Garage Door Repair</option>
+<option value="18">Gas Services</option>
+<option value="35">Holiday Lights Installation</option>
+<option value="8">Junk Removal</option>
+<option value="14">Lawn Maintenance</option>
+<option value="32">Locksmith</option>
+<option value="44">Mould Remediation</option>
+<option value="28">Moving &amp; Delivery</option>
+<option value="40">Painting</option>
+<option value="9">Pest Control</option>
+<option value="7">Plumbing</option>
+<option value="27">Powerwash, Stain &amp; Seal</option>
+<option value="37">Smart Home Install</option>
+<option value="30">Snow Removal</option>
+<option value="39">Stone &amp; Interlock</option>
+<option value="43">Tile &amp; Grout Cleaning</option>
+<option value="47">Tree Services</option></select>
+<span class='input-group-btn'>
+<input type="submit" name="commit" value="GO!" class="button btn btn-secondary" id="service-picker-submit" data-disable-with="GO!" />
+</span>
+</div>
+</form></div>
+</div>
+</div>
+<div class='banner-right hidden-xs hidden-sm'>
+<div class='content'>
+<img id="phones" src="assets/landing/two_phones.png" />
+</div>
+</div>
+</div>
+</section>
+
+
+<section id='advantages'>
+<div class='container landing-section'>
+<h2 class='section-heading text-primary'>
+STOP CALLING AROUND
+</h2>
+<h3 class='section-subheading text-primary'>
+Peoplesolution is the easiest way to book quick, small jobs around the house.
+</h3>
+<div class='row'>
+<div class='col-sm-6 col-xs-order-2'>
+<div class='advantages-content'>
+<h5 class='content-heading'>Instant Booking</h5>
+<p class='content-text'>
+We're always available via our large network of professionals; simply
+specify an ideal time for you and we'll match you with a nearby
+pro. All rates are pre-set, so you know you're always paying an
+industry average rate, without having to research, price compare, and
+go back and forth haggling with each company.
+</p>
+</div>
+</div>
+<div class='col-sm-6 col-xs-order-1'>
+<div class='advantages-content'>
+<img src="assets/landing/instant-booking.png" />
+</div>
+</div>
+</div>
+<div class='row'>
+<div class='col-sm-6'>
+<div class='advantages-content'>
+<img src="assets/landing/only-amazing-pros.png" />
+</div>
+</div>
+<div class='col-sm-6'>
+<div class='advantages-content'>
+<h5 class='content-heading'>Only Amazing Pros</h5>
+<p class='content-text'>
+Each company goes through a thorough vetting process, and are held
+to a high standard as rated by other users. After the job, you'll be
+billed via credit card and prompted to rate your pro. We're so confident
+we'll deliver an exceptional experience, that if anything didn't go
+perfectly, simply let us know and we'll do everything we can to make it
+right.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id='services'>
+<div class='container landing-section'>
+<h2 class='section-heading text-primary'>SERVICES</h2>
+<div id='service-icons'>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=34"><img alt="Appliance Install" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/34/le/86a518f4-b714-4530-95c7-f59a0e3580f4.png" />
+<span>Appliance Install</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=26"><img alt="Appliance Repair" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/26/le/68f202e8-4a18-4d9e-b884-d5f8ab168f48.png" />
+<span>Appliance Repair</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=13"><img alt="BBQ Cleaning &amp; Repair" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/13/le/8e61e59f-9fb8-459e-805d-08900cfde2ac.png" />
+<span>BBQ Cleaning &amp; Repair</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=57"><img alt="Bins Collection" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/57/le/a92ba8bd-d535-4193-8ea4-5f7cdc3ffe37.png" />
+<span>Bins Collection</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=10"><img alt="Carpet &amp; Upholstery Cleaning" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/10/le/76fb6899-5a78-48fd-8c6d-403403bcb84b.png" />
+<span>Carpet &amp; Upholstery Cleaning</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=42"><img alt="Decks &amp; Fences" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/42/le/1b32595b-49f5-4a67-95d3-2f26a0ac56e9.png" />
+<span>Decks &amp; Fences</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=48"><img alt="Dryer Vent Cleaning" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/48/le/e862833a-e5bb-46fd-bc2f-2ffcdbdb6491.png" />
+<span>Dryer Vent Cleaning</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=17"><img alt="Duct Cleaning" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/17/le/d5210e9a-c99b-4f03-b2c1-8b3d57dbaf7d.png" />
+<span>Duct Cleaning</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=45"><img alt="Eavestrough Repair" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/45/le/cea4f6a6-eb1b-4bd6-b217-2854ec885203.png" />
+<span>Eavestrough Repair</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=3"><img alt="Electrical" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/3/le/01d033f6-f637-4317-9dfb-d3ed4d09b6e2.png" />
+<span>Electrical</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=41"><img alt="Flooring" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/41/le/44524356-1c74-407b-b2f5-9976d144f187.png" />
+<span>Flooring</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=16"><img alt="Furniture Assembly" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/16/le/03aacfb5-c9c9-4d56-9dbf-b089a3878c00.png" />
+<span>Furniture Assembly</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=11"><img alt="Garage Door Repair" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/11/le/525bea68-3316-4f3a-af3f-ad475dd0c067.png" />
+<span>Garage Door Repair</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=18"><img alt="Gas Services" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/18/le/c5bbcc7e-5d0f-4353-b373-dc11a8159b91.png" />
+<span>Gas Services</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=4"><img alt="Handyman Services" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/4/le/70a90bac-c48f-4814-bc28-5ee8ca455a3a.png" />
+<span>Handyman Services</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=5"><img alt="Heating &amp; Cooling" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/5/le/8e3edb3a-5003-4e45-8667-886c0fee95e1.png" />
+<span>Heating &amp; Cooling</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=35"><img alt="Holiday Lights Installation" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/35/le/aedd4f0a-f024-4be9-9473-927f4eea0386.png" />
+<span>Holiday Lights Installation</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=15"><img alt="Home Inspection" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/15/le/d30ebe17-7866-4ee9-9ae1-1b332b28ed00.png" />
+<span>Home Inspection</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=8"><img alt="Junk Removal" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/8/le/262e94ea-91f8-4e67-b6a5-86b23b6d8180.png" />
+<span>Junk Removal</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=14"><img alt="Lawn Maintenance" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/14/le/d01a48fc-7e18-45af-813d-fcb320370559.png" />
+<span>Lawn Maintenance</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=32"><img alt="Locksmith" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/32/le/db35fc05-d0af-4899-8d5b-bb3d11361d6d.png" />
+<span>Locksmith</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=44"><img alt="Mould Remediation" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/44/le/66780ab8-7675-43c6-b2ce-42e6049f77f8.png" />
+<span>Mould Remediation</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=28"><img alt="Moving &amp; Delivery" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/28/le/d82c87b2-265c-4252-a807-e82972e69eaf.png" />
+<span>Moving &amp; Delivery</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=40"><img alt="Painting" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/40/le/601a6db7-643a-4d97-83b1-e7d0c957efaf.png" />
+<span>Painting</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=9"><img alt="Pest Control" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/9/le/de2baed9-77d2-4707-a147-24070b00c9c8.png" />
+<span>Pest Control</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=7"><img alt="Plumbing" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/7/le/87bcd9dd-fdb7-4ad4-a397-f2434a927d63.png" />
+<span>Plumbing</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=27"><img alt="Powerwash, Stain &amp; Seal" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/27/le/5f95d263-42c1-49ae-821c-6ed17bb7229f.png" />
+<span>Powerwash, Stain &amp; Seal</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=38"><img alt="Roofing" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/38/le/3a75542c-a6b1-41c9-ae53-14bfb6d5fe64.png" />
+<span>Roofing</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=37"><img alt="Smart Home Install" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/37/le/f60eeb8c-687f-4597-aa57-eff10feb993d.png" />
+<span>Smart Home Install</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=39"><img alt="Stone &amp; Interlock" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/39/le/83090416-a5cf-401f-896d-b2d22373d483.png" />
+<span>Stone &amp; Interlock</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=43"><img alt="Tile &amp; Grout Cleaning" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/43/le/6dc565d9-f59e-483e-baf9-bfa9ac17a1ab.png" />
+<span>Tile &amp; Grout Cleaning</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=47"><img alt="Tree Services" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/47/le/2d5c3780-d30c-4928-ac9f-fd8049acb322.png" />
+<span>Tree Services</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=52"><img alt="Waterproofing" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/52/le/43aa0fad-1c8b-4e75-9709-31fb321f1720.png" />
+<span>Waterproofing</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=53"><img alt="Water &amp; Sewage Damage" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/53/le/16a114be-3511-42c5-8816-dc9608ae60c1.png" />
+<span>Water &amp; Sewage Damage</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=12"><img alt="Window &amp; Eaves Cleaning" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/12/le/32b3404c-2bbb-466c-a597-854d0009d540.png" />
+<span>Window &amp; Eaves Cleaning</span>
+</a></div>
+<div class='service hidden-xs'>
+<a href="/jobs/new?job%5Bservice%5D=51"><img alt="Windows &amp; Doors" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/51/le/db2f94e4-9841-4c2d-80bf-ce45d65eeefe.png" />
+<span>Windows &amp; Doors</span>
+</a></div>
+<div class='service featured visible-xs'>
+<a href="/jobs/new?job%5Bservice%5D=57"><img alt="Bins Collection" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/57/le/a92ba8bd-d535-4193-8ea4-5f7cdc3ffe37.png" />
+<span>Bins Collection</span>
+</a></div>
+<div class='service featured visible-xs'>
+<a href="/jobs/new?job%5Bservice%5D=3"><img alt="Electrical" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/3/le/01d033f6-f637-4317-9dfb-d3ed4d09b6e2.png" />
+<span>Electrical</span>
+</a></div>
+<div class='service featured visible-xs'>
+<a href="/jobs/new?job%5Bservice%5D=4"><img alt="Handyman Services" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/4/le/70a90bac-c48f-4814-bc28-5ee8ca455a3a.png" />
+<span>Handyman Services</span>
+</a></div>
+<div class='service featured visible-xs'>
+<a href="/jobs/new?job%5Bservice%5D=5"><img alt="Heating &amp; Cooling" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/5/le/8e3edb3a-5003-4e45-8667-886c0fee95e1.png" />
+<span>Heating &amp; Cooling</span>
+</a></div>
+<div class='service featured visible-xs'>
+<a href="/jobs/new?job%5Bservice%5D=7"><img alt="Plumbing" src="https://d1yejvhi932hco.cloudfront.net/production/service/images/7/le/87bcd9dd-fdb7-4ad4-a397-f2434a927d63.png" />
+<span>Plumbing</span>
+</a></div>
+</div>
+<div class='text-center visible-xs'>
+<a id="more-services" class="btn btn-hollow btn-primary" href="#">More Services</a>
+</div>
+
+</div>
+</section>
+
+<section id='how-it-works'>
+<div class='container landing-section'>
+<h2 class='section-heading text-white'>HOW IT WORKS</h2>
+<div class='steps'>
+<div class='step'>
+<img class="img-responsive" src="assets/landing/how-1.png" />
+<div class='circle hidden-xs hidden-sm'></div>
+<p class='heading'>
+FILL IN BASIC
+<br>
+JOB DETAILS
+</p>
+</div>
+<div class='step'>
+<img class="img-responsive" src="assets/landing/how-2.png" />
+<div class='circle hidden-xs hidden-sm'></div>
+<p class='heading'>
+WE'LL DISPATCH
+<br>
+NEARBY PROS
+</p>
+</div>
+<div class='step'>
+<img class="img-responsive" src="assets/landing/how-3.png" />
+<div class='circle hidden-xs hidden-sm'></div>
+<p class='heading'>
+TRACK YOUR
+<br>
+PRO ON ROUTE
+</p>
+</div>
+<div class='step'>
+<img class="img-responsive" src="assets/landing/how-4.png" />
+<div class='circle hidden-xs hidden-sm'></div>
+<p class='heading'>
+PAY
+<br>
+SEAMLESSLY
+</p>
+</div>
+</div>
+<div class='lines hidden-xs hidden-sm'>
+<div class='line-container'>
+<hr class='line'>
+</div>
+<div class='line-container'>
+<hr class='line'>
+</div>
+<div class='line-container'>
+<hr class='line'>
+</div>
+</div>
+</div>
+</section>
+
+<section id='reverse-flash'>
+<div class='container landing-section'>
+<h2 class='section-heading text-primary'>
+SAVE WITH PEOPLESOLUTION FLASH!
+</h2>
+<div class='map-section'>
+<img id="flash-phone" src="assets/landing/jiffy-flash-phone.png" />
+</div>
+<div class='more-details'>
+<a class="button button-secondary" href="/flash_deals">Find out more</a>
+</div>
+</div>
+</section>
+
+
+<script>
+  (function() {
+    analytics.page("Landing");
+  
+  }).call(this);
+</script>
+
+
+</div>
+<section id='footer'>
+<div class='container'>
+<div class='footer-links'>
+<img class="footer-logo" src="/assets/logos/logo-navbar-82ad596592975a0870f22d62e7fa12e9035bafdacbe24eed207593b43ac8539e.png" />
+<div class='links-container'>
+<div class='left-links'>
+<ul>
+<li><a href="/about_us">About Us</a></li>
+<li>
+<a target="_blank" href="">Blog</a>
+</li>
+<li><a target="_blank" href="">Help Centre</a></li>
+<li class='highlighted'><a href="/account/sign_up">Become a Peoplesolution Pro</a></li>
+<li class='highlighted'><a href="/jobs/new">Book a Job</a></li>
+</ul>
+</div>
+<div class='right-links'>
+<ul>
+<li><a href="/careers">Careers</a></li>
+<li><a href="/flash_deals">Peoplesolution Flash</a></li>
+<li><a href="/satisfaction_guarantee">Satisfaction Guarantee</a></li>
+<li><a href="/terms_and_conditions">Terms and Conditions</a></li>
+<li><a href="/privacy_policy">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class='services-list'>
+<h4 class='list-header'>
+Services
+</h4>
+<div class='services'>
+<span class='service'>
+<a href="/services/appliance-install">Appliance Install</a>
+</span>
+<span class='service'>
+<a href="/services/appliance-repair">Appliance Repair</a>
+</span>
+<span class='service'>
+<a href="/services/bbq-cleaning">BBQ Cleaning &amp; Repair</a>
+</span>
+<span class='service'>
+<a href="/services/bins-collection">Bins Collection</a>
+</span>
+<span class='service'>
+<a href="/services/carpet-upholstery-cleaning">Carpet &amp; Upholstery Cleaning</a>
+</span>
+<span class='service'>
+<a href="/services/decks-fences">Decks &amp; Fences</a>
+</span>
+<span class='service'>
+<a href="/services/dryer-vent-cleaning">Dryer Vent Cleaning</a>
+</span>
+<span class='service'>
+<a href="/services/duct-cleaning">Duct Cleaning</a>
+</span>
+<span class='service'>
+<a href="/services/eaves-soffit-siding-repair">Eavestrough Repair</a>
+</span>
+<span class='service'>
+<a href="/services/electrical">Electrical</a>
+</span>
+<span class='service'>
+<a href="/services/flooring">Flooring</a>
+</span>
+<span class='service'>
+<a href="/services/furniture-assembly">Furniture Assembly</a>
+</span>
+<span class='service'>
+<a href="/services/garage-door-repair">Garage Door Repair</a>
+</span>
+<span class='service'>
+<a href="/services/gas-services">Gas Services</a>
+</span>
+<span class='service'>
+<a href="/services/handyman">Handyman Services</a>
+</span>
+<span class='service'>
+<a href="/services/heating-cooling-hvac">Heating &amp; Cooling</a>
+</span>
+<span class='service'>
+<a href="/services/holiday-lights">Holiday Lights Installation</a>
+</span>
+<span class='service'>
+<a href="/services/home-inspection">Home Inspection</a>
+</span>
+<span class='service'>
+<a href="/services/junk-removal">Junk Removal</a>
+</span>
+<span class='service'>
+<a href="/services/lawn-maintenance">Lawn Maintenance</a>
+</span>
+<span class='service'>
+<a href="/services/locksmith">Locksmith</a>
+</span>
+<span class='service'>
+<a href="/services/mold-remediation">Mould Remediation</a>
+</span>
+<span class='service'>
+<a href="/services/moving-delivery">Moving &amp; Delivery</a>
+</span>
+<span class='service'>
+<a href="/services/painting2">Painting</a>
+</span>
+<span class='service'>
+<a href="/services/pest-control">Pest Control</a>
+</span>
+<span class='service'>
+<a href="/services/plumbing">Plumbing</a>
+</span>
+<span class='service'>
+<a href="/services/powerwash">Powerwash, Stain &amp; Seal</a>
+</span>
+<span class='service'>
+<a href="/services/roofing">Roofing</a>
+</span>
+<span class='service'>
+<a href="/services/camera-alarm-install">Smart Home Install</a>
+</span>
+<span class='service'>
+<a href="/services/landscaping-interlock">Stone &amp; Interlock</a>
+</span>
+<span class='service'>
+<a href="/services/tile-grout-cleaning">Tile &amp; Grout Cleaning</a>
+</span>
+<span class='service'>
+<a href="/services/tree-services">Tree Services</a>
+</span>
+<span class='service'>
+<a href="/services/waterproofing">Waterproofing</a>
+</span>
+<span class='service'>
+<a href="/services/water-sewage-damage">Water &amp; Sewage Damage</a>
+</span>
+<span class='service'>
+<a href="/services/windows-eaves-cleaning">Window &amp; Eaves Cleaning</a>
+</span>
+<span class='service'>
+<a href="/services/windows-doors">Windows &amp; Doors</a>
+</span>
+</div>
+</div>
+</div>
+</section>
+<section id='footer-banner'>
+<div class='container'>
+<div class='social-links'>
+<a target="_blank" href=""><i class='fa fa-facebook-f'></i>
+</a><a target="_blank" href=""><i class='fa fa-twitter'></i>
+</a><a target="_blank" href=""><i class='fa fa-linkedin'></i>
+</a><a target="_blank" href=""><i class='fa fa-instagram'></i>
+</a></div>
+<div class='copyright'>
+<p>
+<i class='fa fa-copyright'></i>
+2019
+Peoplesolution Inc.
+</p>
+</div>
+</div>
+</section>
+
+<div class='hidden'>
+<!-- Google Code for Retargeting -->
+<script>
+  /* <![CDATA[ */
+    var google_conversion_id = 943692239;
+    var google_custom_params = window.google_tag_params;
+    var google_retargeting_only = true;
+  /* ]]> */
+</script>
+<script src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+<div style='display:inline;'>
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/943692239/?value=0&amp;guid=ON&amp;script=0" />
+</div>
+</noscript>
+</div>
+
+
+
+<script src="/assets/deferred.js"></script>
+</body>
+</html>
